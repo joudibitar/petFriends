@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "239263037515",
+    "project_id": "pets-friends-ffb15",
+    "storage_bucket": "pets-friends-ffb15.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:239263037515:android:671b580d0c37a98e6635ce",
+        "android_client_info": {
+          "package_name": "com.example.pet_friend"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEjZXT4O05-7KWd20tCfPaSJVAAVD_QSo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:239263037515:android:6cb92b1f238bab446635ce",
+        "android_client_info": {
+          "package_name": "com.example.pets_friends_"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEjZXT4O05-7KWd20tCfPaSJVAAVD_QSo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

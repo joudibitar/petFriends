@@ -1,0 +1,29 @@
+name: pet_friend
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.1 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  firebase_core: ^2.8.0
+  firebase_auth: ^4.7.0
+  cloud_firestore: ^4.9.0
+  firebase_storage: ^11.1.0
+  image_picker: ^0.8.5+3
+  email_validator: ^2.1.17
+  cupertino_icons: ^1.0.6
+  uuid: ^4.0.1
+  intl: ^0.18.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
