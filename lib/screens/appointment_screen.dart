@@ -51,6 +51,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
         date: _selectedDate!,
         veterinarian: _veterinarianController.text,
         meetingPoint: _meetingPointController.text,
+        status: AppointmentStatus.pending, // Initialize as pending
       );
 
       DocumentReference docRef = await FirebaseFirestore.instance.collection('appointments').add(newAppointment.toMap());
@@ -61,6 +62,14 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
 
       Navigator.pop(context);
     }
+  }
+
+  @override
+  void dispose() {
+    _dateController.dispose();
+    _veterinarianController.dispose();
+    _meetingPointController.dispose();
+    super.dispose();
   }
 
   @override

@@ -12,21 +12,21 @@ class PetListScreen extends StatefulWidget {
 class _PetListScreenState extends State<PetListScreen> {
   Future<List<Pet>> _fetchPets() async {
     QuerySnapshot snapshot = await FirebaseFirestore.instance.collection('pets').get();
-    return snapshot.docs.map((doc) => Pet.fromMap(doc.data() as Map<String, dynamic>, doc.id)).toList() as List<Pet>;
+    return snapshot.docs.map((doc) => Pet.fromMap(doc.data() as Map<String, dynamic>, doc.id)).toList();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Pets'),
+        title: const Text('Pets'),
         actions: [
           IconButton(
-            icon: Icon(Icons.add),
+            icon: const Icon(Icons.add),
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => AddPetScreen()),
+                MaterialPageRoute(builder: (context) => const AddPetScreen()),
               );
             },
           ),
@@ -36,11 +36,11 @@ class _PetListScreenState extends State<PetListScreen> {
         future: _fetchPets(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return Center(child: Text('No pets found'));
+            return const Center(child: Text('No pets found'));
           } else {
             List<Pet> pets = snapshot.data!;
             return ListView.builder(
@@ -50,6 +50,9 @@ class _PetListScreenState extends State<PetListScreen> {
                 return ListTile(
                   title: Text(pet.breed),
                   subtitle: Text('Age: ${pet.age}'),
+                  leading: pet.photoUrl.isNotEmpty
+                      ? Image.network(pet.photoUrl, width: 50, height: 50, fit: BoxFit.cover)
+                      : const Icon(Icons.pets),
                   onTap: () {
                     Navigator.push(
                       context,

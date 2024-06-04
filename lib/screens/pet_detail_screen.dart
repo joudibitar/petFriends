@@ -26,6 +26,14 @@ class PetDetailScreen extends StatelessWidget {
                   fit: BoxFit.cover,
                   height: 200,
                   width: double.infinity,
+                  errorBuilder: (context, error, stackTrace) {
+                    return Image.asset(
+                      'assets/placeholder.png',
+                      fit: BoxFit.cover,
+                      height: 200,
+                      width: double.infinity,
+                    );
+                  },
                 ),
               ),
               const SizedBox(height: 16),
@@ -50,7 +58,9 @@ class PetDetailScreen extends StatelessWidget {
               const SizedBox(height: 8),
               ElevatedButton(
                 onPressed: () {
-                  // Handle breeding
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Breed functionality not implemented yet.')),
+                  );
                 },
                 child: const Text('Breed'),
               ),
